@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Devi Enterprises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        dark: '#0a0a0a',
+                        darker: '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+        }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
+        }
+        /* Language Transition */
+        [data-lang] {
+            transition: opacity 0.3s ease;
+        }
+        .lang-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-darker text-white font-sans antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Language Switcher Floating Button -->
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-3">
+        <button id="lang-toggle" class="bg-gold-500 text-black font-black px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-all flex items-center gap-2 border-2 border-black">
+            <i class="fas fa-language text-xl"></i>
+            <span id="lang-label">ಕನ್ನಡ</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-darker/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img src="Durga Logo.jpg" alt="Durga Logo" class="h-12 w-auto logo-glow rounded-full">
+                    <span class="text-2xl font-black text-gold-500 tracking-tighter text-glow">SDE</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
+                            <span data-en="Home" data-kn="ಮನೆ">Home</span>
+                        </a>
+                        <a href="#about" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
+                            <span data-en="Owner" data-kn="ಮಾಲೀಕರು">Owner</span>
+                        </a>
+                        <a href="#services" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
+                            <span data-en="Services" data-kn="ಸೇವೆಗಳು">Services</span>
+                        </a>
+                        <a href="#reviews" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
+                            <span data-en="Reviews" data-kn="ಅಭಿಪ್ರಾಯ">Reviews</span>
+                        </a>
+                        <a href="#contact" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
+                            <span data-en="Contact" data-kn="ಸಂಪರ್ಕಿಸಿ">Contact</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 text-center">
+                <a href="#home" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Home" data-kn="ಮನೆ">Home</a>
+                <a href="#about" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Owner" data-kn="ಮಾಲೀಕರು">Owner</a>
+                <a href="#services" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Services" data-kn="ಸೇವೆಗಳು">Services</a>
+                <a href="#reviews" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Reviews" data-kn="ಅಭಿಪ್ರಾಯ">Reviews</a>
+                <a href="#contact" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Contact" data-kn="ಸಂಪರ್ಕಿಸಿ">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="pt-32 pb-20 min-h-[90vh] flex items-center border-b border-gray-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
+            <div class="flex flex-col items-center justify-center text-center">
+                <div class="max-w-4xl animate-fade-in">
+                    <img src="Durga Logo.jpg" alt="Durga Logo" class="h-40 md:h-56 w-auto mx-auto mb-8 logo-glow">
+                    <div class="mb-4 inline-block px-4 py-1 border border-gold-500/30 rounded text-gold-500 font-black text-xl tracking-widest uppercase">
+                        SDE
+                    </div>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                        SRI DEVI <span class="text-gold-500">ENTERPRISES</span>
+                    </h1>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-300 mb-8 font-serif">ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್</h2>
+                    <p class="text-xl md:text-2xl text-gold-400 font-medium mb-12 uppercase tracking-[0.2em]" data-en="Proudly Serving Since 1995" data-kn="1995 ರಿಂದ ನಿಮ್ಮ ಸೇವೆಯಲ್ಲಿ">Proudly Serving Since 1995</p>
+
+                    <div class="flex flex-col sm:flex-row justify-center gap-6">
+                        <a href="tel:+917760101253" class="gradient-gold text-black font-bold py-5 px-12 rounded-full shadow-2xl transition-all hover:scale-105 hover:shadow-gold-500/20">
+                            <i class="fas fa-phone-alt mr-2"></i> <span data-en="Call Now" data-kn="ಈಗ ಕರೆ ಮಾಡಿ">Call Now</span>
+                        </a>
+                        <a href="https://wa.me/917760101253" class="bg-transparent border-2 border-green-500 text-green-500 font-bold py-5 px-12 rounded-full flex items-center justify-center gap-2 hover:bg-green-500 hover:text-white transition-all">
+                            <i class="fab fa-whatsapp text-xl"></i> <span data-en="WhatsApp" data-kn="ವಾಟ್ಸಾಪ್">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+    </section>
+
+    <!-- OWNER SECTION (ABOUT) -->
+    <section id="about" class="py-24 bg-dark">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image of Founder -->
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                        <div class="relative bg-gray-900 p-2 rounded-2xl border border-gray-800 shadow-2xl">
+                            <img src="Dhooma Thingalaya.jpg" alt="Dhooma Thingalaya - Owner" class="rounded-xl w-72 md:w-80 h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gold-500 text-black px-8 py-3 rounded-full font-black shadow-2xl whitespace-nowrap uppercase tracking-widest text-sm" data-en="Dhooma Thingalaya" data-kn="ಧೂಮ ತಿಂಗಳಾಯ">
+                                Dhooma Thingalaya
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/3 text-center lg:text-left space-y-8 mt-12 lg:mt-0">
+                    <div class="inline-block px-4 py-1 rounded-full bg-gold-500/10 text-gold-500 font-bold text-sm tracking-widest uppercase" data-en="Founder & Proprietor" data-kn="ಸ್ಥಾಪಕರು ಮತ್ತು ಮಾಲೀಕರು">Founder & Proprietor</div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">
+                        <span data-en="The Visionary Behind" data-kn="ನಮ್ಮ ವಿಶ್ವಾಸಾರ್ಹ ಪರಂಪರೆಯ">The Visionary Behind</span> <br>
+                        <span class="text-gold-500" data-en="Our Trusted Legacy" data-kn="ಹಿಂದಿರುವ ದೃಷ್ಟಿಕೋನ">Our Trusted Legacy</span>
+                    </h2>
+                    <div class="space-y-6 max-w-3xl">
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            <strong data-en="Sri Devi Enterprises – Proudly serving since 1995." data-kn="ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್ – 1995 ರಿಂದ ಹೆಮ್ಮೆಯ ಸೇವೆ.">Sri Devi Enterprises – Proudly serving since 1995.</strong> 
+                            <span data-en="Based in Udupi, we have built a respected legacy of reliability and service excellence, earning the trust of families across Uppoor and Herur." data-kn="ಉಡುಪಿಯಲ್ಲಿದ್ದು, ನಾವು ಉಪ್ಪೂರು ಮತ್ತು ಹೇರೂರಿನ ಕುಟುಂಬಗಳ ವಿಶ್ವಾಸವನ್ನು ಗಳಿಸಿ, ವಿಶ್ವಾಸಾರ್ಹತೆ ಮತ್ತು ಸೇವಾ ಶ್ರೇಷ್ಠತೆಯ ಪರಂಪರೆಯನ್ನು ನಿರ್ಮಿಸಿದ್ದೇವೆ.">Based in Udupi, we have built a respected legacy of reliability and service excellence, earning the trust of families across Uppoor and Herur.</span>
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            <span data-en="Under the dedicated leadership of Dhooma Thingalaya, we specialize in dependable event rental solutions for weddings, religious functions, parties, and community gatherings." data-kn="ಧೂಮ ತಿಂಗಳಾಯ ಅವರ ನಾಯಕತ್ವದಲ್ಲಿ, ನಾವು ಮದುವೆಗಳು, ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮಗಳು, ಪಾರ್ಟಿಗಳು ಮತ್ತು ಸಮುದಾಯ ಕೂಟಗಳಿಗೆ ಬೇಕಾದ ಬಾಡಿಗೆ ಸಾಮಗ್ರಿಗಳ ಪೂರೈಕೆಯಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿದ್ದೇವೆ.">Under the dedicated leadership of Dhooma Thingalaya, we specialize in dependable event rental solutions for weddings, religious functions, parties, and community gatherings.</span>
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
+                        <div class="p-4 bg-gray-900/50 rounded-2xl border border-gray-800 text-left">
+                            <p class="text-gold-500 font-black text-2xl">30+</p>
+                            <p class="text-gray-500 text-xs uppercase font-bold" data-en="Years of Service" data-kn="ವರ್ಷಗಳ ಸೇವೆ">Years of Service</p>
+                        </div>
+                        <div class="p-4 bg-gray-900/50 rounded-2xl border border-gray-800 text-left">
+                            <p class="text-gold-500 font-black text-2xl" data-en="Udupi" data-kn="ಉಡುಪಿ">Udupi</p>
+                            <p class="text-gray-500 text-xs uppercase font-bold" data-en="Region Served" data-kn="ಸೇವಾ ಪ್ರದೇಶ">Region Served</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                <span data-en="Our" data-kn="ನಮ್ಮ">Our</span> <span class="text-gold-500" data-en="Specializations" data-kn="ವಿಶೇಷ ಸೇವೆಗಳು">Specializations</span>
+            </h2>
+            <p class="text-gray-400 mb-16 max-w-2xl mx-auto" data-en="Expert solutions tailored for every occasion, from grand weddings to sacred traditional rituals." data-kn="ಭವ್ಯವಾದ ವಿವಾಹಗಳಿಂದ ಹಿಡಿದು ಪವಿತ್ರ ಸಾಂಪ್ರದಾಯಿಕ ಆಚರಣೆಗಳವರೆಗೆ ಪ್ರತಿ ಸಂದರ್ಭಕ್ಕೂ ಸೂಕ್ತವಾದ ಪರಿಹಾರಗಳು.">Expert solutions tailored for every occasion, from grand weddings to sacred traditional rituals.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-900 p-8 rounded-3xl border border-gold-500/30 text-left hover:border-gold-500 transition-all group">
+                    <div class="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(245,158,11,0.4)]">
+                        <i class="fas fa-om text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4" data-en="Traditional Kola & Daiva Nema Setup" data-kn="ಸಾಂಪ್ರದಾಯಿಕ ಕೋಲ ಮತ್ತು ದೈವ ನೇಮ ವ್ಯವಸ್ಥೆ">Traditional Kola & Daiva Nema Setup</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-en="Professional and authentic Kola Chapara arrangements for Bhoota Kola and Daiva Nema ceremonies." data-kn="ಭೂತ ಕೋಲ ಮತ್ತು ದೈವ ನೇಮದ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ವೃತ್ತಿಪರ ಕೋಲದ ಚಪ್ಪರ ವ್ಯವಸ್ಥೆಗಳು.">
+                        Professional and authentic Kola Chapara arrangements for Bhoota Kola and Daiva Nema ceremonies.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Cultural Authenticity" data-kn="ಸಾಂಸ್ಕೃತಿಕ ನೈಜತೆ">Cultural Authenticity</span></li>
+                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Lighting & Structural Setup" data-kn="ಲೈಟಿಂಗ್ ಮತ್ತು ಸ್ಟ್ರಕ್ಚರಲ್ ಸೆಟಪ್">Lighting & Structural Setup</span></li>
+                    </ul>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 text-left hover:border-gray-700 transition-all">
+                    <div class="w-14 h-14 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chair text-gold-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4" data-en="Event Rentals" data-kn="ಬಾಡಿಗೆ ಸಾಮಗ್ರಿಗಳು">Event Rentals</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-en="Comprehensive inventory for any gathering size." data-kn="ಯಾವುದೇ ಗಾತ್ರದ ಕೂಟಗಳಿಗೆ ಬೇಕಾದ ಸಮಗ್ರ ಬಾಡಿಗೆ ಸಾಮಗ್ರಿಗಳು.">Comprehensive inventory for any gathering size.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Plastic & Steel Chairs" data-kn="ಪ್ಲಾಸ್ಟಿಕ್ ಮತ್ತು ಸ್ಟೀಲ್ ಕುರ್ಚಿಗಳು">Plastic & Steel Chairs</span></li>
+                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Dining Tables & Tents" data-kn="ಊಟದ ಟೇಬಲ್ ಮತ್ತು ಟೆಂಟ್‌ಗಳು">Dining Tables & Tents</span></li>
+                    </ul>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 text-left hover:border-gray-700 transition-all">
+                    <div class="w-14 h-14 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-gold-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4" data-en="Function Support" data-kn="ಕಾರ್ಯಕ್ರಮ ಬೆಂಬಲ">Function Support</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-en="End-to-end management for seamless execution." data-kn="ಯಾವುದೇ ಅಡೆತಡೆಯಿಲ್ಲದೆ ಕಾರ್ಯಕ್ರಮ ನಡೆಸಲು ಸಂಪೂರ್ಣ ಬೆಂಬಲ.">End-to-end management for seamless execution.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Wedding Stage Setup" data-kn="ಮದುವೆ ಸ್ಟೇಜ್ ಸೆಟಪ್">Wedding Stage Setup</span></li>
+                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Organized Transportation" data-kn="ಸಂಘಟಿತ ಸಾರಿಗೆ">Organized Transportation</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="py-24 bg-dark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gray-900 p-12 rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 blur-3xl rounded-full -mr-16 -mt-16"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    <span data-en="Share Your" data-kn="ನಿಮ್ಮ">Share Your</span> <span class="text-gold-500" data-en="Feedback" data-kn="ಅಭಿಪ್ರಾಯ ಹಂಚಿಕೊಳ್ಳಿ">Feedback</span>
+                </h2>
+                <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto" data-en="Your satisfaction is our greatest reward. If you've enjoyed our services, please take a moment to leave us a review on Google." data-kn="ನಿಮ್ಮ ತೃಪ್ತಿಯೇ ನಮ್ಮ ಅತಿದೊಡ್ಡ ಪ್ರತಿಫಲ. ನಮ್ಮ ಸೇವೆಗಳು ನಿಮಗೆ ಇಷ್ಟವಾಗಿದ್ದರೆ, ದಯವಿಟ್ಟು ಗೂಗಲ್‌ನಲ್ಲಿ ನಮಗೆ ವಿಮರ್ಶೆಯನ್ನು ನೀಡಿ.">
+                    Your satisfaction is our greatest reward. If you've enjoyed our services, please take a moment to leave us a review on Google.
+                </p>
+                <div class="flex flex-col items-center gap-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="flex text-gold-500 text-2xl">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <a href="https://g.page/r/CcnaJTJGU3yKEBM/review" target="_blank" class="gradient-gold text-black font-extrabold py-5 px-12 rounded-full shadow-xl transition-all hover:scale-105 flex items-center gap-3">
+                        <i class="fab fa-google text-xl"></i>
+                        <span data-en="CLICK HERE TO LEAVE A REVIEW" data-kn="ಅಭಿಪ್ರಾಯ ನೀಡಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ">CLICK HERE TO LEAVE A REVIEW</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & PAYMENT -->
+    <section id="contact" class="py-24 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8 text-gold-500" data-en="Get In Touch" data-kn="ಸಂಪರ್ಕಿಸಿ">Get In Touch</h2>
+                    <div class="space-y-6 bg-gray-900 p-8 rounded-3xl border border-gray-800">
+                        <a href="tel:+917760101253" class="flex items-center gap-4 group hover:bg-gray-800 p-4 rounded-xl transition-all">
+                            <i class="fas fa-phone text-gold-500 text-xl w-8"></i>
+                            <span class="text-xl font-bold group-hover:text-gold-400 transition-colors">+91 7760101253</span>
+                        </a>
+                        <a href="mailto:srideviuppoor@gmail.com" class="flex items-center gap-4 group hover:bg-gray-800 p-4 rounded-xl transition-all">
+                            <i class="fas fa-envelope text-gold-500 text-xl w-8"></i>
+                            <span class="text-lg group-hover:text-gold-400 transition-colors">srideviuppoor@gmail.com</span>
+                        </a>
+                        <div class="mt-8">
+                            <p class="text-sm text-gray-500 uppercase font-bold mb-4 ml-4" data-en="Location & Navigation" data-kn="ಸ್ಥಳ ಮತ್ತು ದಾರಿ">Location & Navigation</p>
+                            <a href="https://maps.app.goo.gl/bG8nN6LviGYYS3nE7" target="_blank" class="flex items-center justify-center gap-3 w-full bg-gold-500 text-black font-bold py-4 px-6 rounded-2xl mb-4 hover:bg-gold-400 transition-all shadow-lg active:scale-95">
+                                <i class="fas fa-directions text-2xl"></i>
+                                <span data-en="OPEN IN GOOGLE MAPS" data-kn="ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ವೀಕ್ಷಿಸಿ">OPEN IN GOOGLE MAPS</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center flex flex-col items-center">
+                    <h2 class="text-3xl font-bold mb-8" data-en="Scan to Pay" data-kn="ಹಣ ಪಾವತಿಸಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ">Scan to Pay</h2>
+                    <div class="bg-white p-4 rounded-3xl shadow-2xl max-w-xs w-full mb-6">
+                        <img src="QR Code - Sri Devi Enterprises.png" alt="Payment QR" class="w-full h-auto">
+                    </div>
+                    <p class="text-gray-500 text-sm" data-en="Tap the ID to open Payment App" data-kn="ಹಣ ಪಾವತಿ ಆಪ್ ತೆರೆಯಲು ಐಡಿ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ">Tap the ID to open Payment App</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-darker py-16 border-t border-gray-900 text-center">
+        <img src="Durga Logo.jpg" alt="Durga Logo" class="h-20 w-auto mx-auto mb-4 opacity-50 grayscale hover:grayscale-0 transition-all">
+        <h2 class="text-2xl font-bold text-white mb-2 uppercase tracking-widest">Sri Devi Enterprises</h2>
+        <p class="text-gray-500 mb-8 font-serif">ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್</p>
+        <div class="mt-8 text-gray-600 text-sm" data-en="© 2026 Sri Devi Enterprises | NH66 Uppoor | Since 1995" data-kn="© 2026 ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್ | NH66 ಉಪ್ಪೂರು | 1995 ರಿಂದ">
+            &copy; 2026 Sri Devi Enterprises | NH66 Uppoor | Since 1995
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language Switcher Logic
+        const langToggle = document.getElementById('lang-toggle');
+        const langLabel = document.getElementById('lang-label');
+        let currentLang = 'en';
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'kn' : 'en';
+            
+            // Update Toggle Button Text
+            langLabel.innerText = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+
+            // Update All Translatable Elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerText = el.getAttribute(`data-${currentLang}`);
+            });
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
+
