@@ -1,351 +1,446 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Devi Enterprises</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        },
-                        dark: '#0a0a0a',
-                        darker: '#000000',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .map-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        .gradient-gold {
-            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-        }
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fade-in 1s ease-out forwards;
-        }
-        .text-glow {
-            text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-        }
-        .logo-glow {
-            filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
-        }
-        /* Language Transition */
-        [data-lang] {
-            transition: opacity 0.3s ease;
-        }
-        .lang-hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body class="bg-darker text-white font-sans antialiased selection:bg-gold-500 selection:text-black">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Devi Enterprises | Event Rentals & Function Support | Uppoor</title>
+  <meta name="description" content="Sri Devi Enterprises, Uppoor — trusted event rentals and function support since 1995. Tables, chairs, tents, stages, roofing, fans, coolers, water facilities, transportation and more.">
+  <meta name="theme-color" content="#7b2f2f">
 
-    <!-- Language Switcher Floating Button -->
-    <div class="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-3">
-        <button id="lang-toggle" class="bg-gold-500 text-black font-black px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition-all flex items-center gap-2 border-2 border-black">
-            <i class="fas fa-language text-xl"></i>
-            <span id="lang-label">ಕನ್ನಡ</span>
-        </button>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{--ink:#25221e;--cream:#f7f3eb;--paper:#fffdf8;--maroon:#7b2f2f;--maroon2:#5f2323;--gold:#b8893b;--line:#e5ddd0;--muted:#6e685f}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--ink)}
+    h1,h2,h3,.serif{font-family:"Playfair Display",serif}
+    .hero-grid{background-image:linear-gradient(rgba(123,47,47,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(123,47,47,.035) 1px,transparent 1px);background-size:34px 34px}
+    .card-hover{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+    .card-hover:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(37,34,30,.09);border-color:rgba(123,47,47,.28)}
+    .primary-btn{background:var(--maroon);color:white;transition:all .2s ease}
+    .primary-btn:hover{background:var(--maroon2);transform:translateY(-1px)}
+    .outline-btn{border:1px solid var(--maroon);color:var(--maroon);transition:all .2s ease}
+    .outline-btn:hover{background:var(--maroon);color:white}
+    .gold-line{width:54px;height:3px;background:var(--gold);border-radius:999px}
+    .mobile-bottom-bar{padding-bottom:env(safe-area-inset-bottom)}
+    @media(min-width:768px){.mobile-bottom-bar{display:none}}
+    @media(max-width:767px){body{padding-bottom:68px}}
+  </style>
+</head>
+
+<body>
+
+<header class="sticky top-0 z-50 bg-[#fffdf8]/95 backdrop-blur border-b border-[#e5ddd0]">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="h-20 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 min-w-0">
+        <div class="w-12 h-12 rounded-full bg-white border border-[#e5ddd0] overflow-hidden flex-shrink-0">
+          <img src="Durga Logo.jpg" alt="Sri Devi Enterprises logo" class="w-full h-full object-cover">
+        </div>
+        <div class="min-w-0">
+          <div class="font-bold tracking-wide text-sm sm:text-base truncate">SRI DEVI ENTERPRISES</div>
+          <div class="text-xs text-[#6e685f]">Uppoor · Since 1995</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium">
+        <a href="#services" class="hover:text-[#7b2f2f] transition">Services</a>
+        <a href="#events" class="hover:text-[#7b2f2f] transition">Events</a>
+        <a href="#about" class="hover:text-[#7b2f2f] transition">About</a>
+        <a href="#quote" class="hover:text-[#7b2f2f] transition">Get a Quote</a>
+        <a href="#contact" class="hover:text-[#7b2f2f] transition">Contact</a>
+        <a href="payment.html" class="primary-btn px-5 py-2.5 rounded-full font-semibold">Pay Now</a>
+      </nav>
+
+      <button id="menuButton" class="lg:hidden w-11 h-11 rounded-full border border-[#e5ddd0] flex items-center justify-center" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-[#e5ddd0] bg-[#fffdf8]">
+    <nav class="px-5 py-5 flex flex-col gap-4 text-sm font-medium">
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#events" class="mobile-link">Events</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#quote" class="mobile-link">Get a Quote</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="payment.html" class="primary-btn px-5 py-3 rounded-xl text-center font-semibold">Pay Now</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="home" class="hero-grid">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16 md:py-24 lg:py-28">
+    <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-12 lg:gap-20 items-center">
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="gold-line"></div>
+          <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#7b2f2f]">Serving Udupi since 1995</span>
+        </div>
+
+        <h1 class="text-5xl md:text-6xl lg:text-7xl leading-[1.02] font-bold max-w-4xl">
+          Everything your function needs.
+          <span class="text-[#7b2f2f]">One trusted local partner.</span>
+        </h1>
+
+        <p class="mt-7 text-lg md:text-xl text-[#6e685f] max-w-2xl leading-relaxed">
+          From tables and chairs to tents, stages, roofing, cooling, water facilities and transportation — Sri Devi Enterprises provides practical event infrastructure and rental support for functions across Udupi.
+        </p>
+
+        <div class="mt-9 flex flex-col sm:flex-row gap-3">
+          <a href="#quote" class="primary-btn px-7 py-3.5 rounded-full font-semibold text-center"><i class="fa-solid fa-file-signature mr-2"></i>Get a Quote</a>
+          <a href="https://wa.me/917760101253" target="_blank" rel="noopener" class="outline-btn px-7 py-3.5 rounded-full font-semibold text-center"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp Us</a>
+          <a href="payment.html" class="px-7 py-3.5 rounded-full font-semibold text-center bg-[#25221e] text-white hover:bg-[#11100e] transition"><i class="fa-solid fa-indian-rupee-sign mr-2"></i>Pay Now</a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-2xl">
+          <div><div class="text-xs uppercase tracking-wider text-[#6e685f]">Location</div><div class="font-semibold mt-1">Uppoor, Udupi</div></div>
+          <div><div class="text-xs uppercase tracking-wider text-[#6e685f]">Phone</div><div class="font-semibold mt-1">+91 77601 01253</div></div>
+          <div><div class="text-xs uppercase tracking-wider text-[#6e685f]">Established</div><div class="font-semibold mt-1">1995</div></div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="bg-[#25221e] text-white rounded-[2rem] p-7 md:p-9 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-xs uppercase tracking-[0.2em] text-white/60">Sri Devi Enterprises</div>
+              <div class="serif text-3xl mt-2">Function Support</div>
+            </div>
+            <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center"><i class="fa-solid fa-tent text-[#d4aa68]"></i></div>
+          </div>
+
+          <div class="mt-8 space-y-4">
+            <div class="flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-chair text-[#d4aa68]"></i></div>
+              <div><div class="font-semibold">Furniture & Seating</div><div class="text-sm text-white/60">Chairs, tables and function furniture</div></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-tent text-[#d4aa68]"></i></div>
+              <div><div class="font-semibold">Shelter & Structures</div><div class="text-sm text-white/60">Tents, roofing and stages</div></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-fan text-[#d4aa68]"></i></div>
+              <div><div class="font-semibold">Comfort & Facilities</div><div class="text-sm text-white/60">Fans, coolers, water tanks and wash basins</div></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-truck text-[#d4aa68]"></i></div>
+              <div><div class="font-semibold">Transportation</div><div class="text-sm text-white/60">Delivery and transport support</div></div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+            <span class="text-sm text-white/60">Uppoor · Udupi</span>
+            <span class="text-[#d4aa68] font-semibold">Since 1995</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-[#25221e] text-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div><div class="text-3xl md:text-4xl serif">31+</div><div class="text-sm text-white/60 mt-1">Years of service</div></div>
+      <div><div class="text-3xl md:text-4xl serif">Local</div><div class="text-sm text-white/60 mt-1">Udupi based</div></div>
+      <div><div class="text-3xl md:text-4xl serif">End-to-end</div><div class="text-sm text-white/60 mt-1">Function support</div></div>
+      <div><div class="text-3xl md:text-4xl serif">Direct</div><div class="text-sm text-white/60 mt-1">Call & WhatsApp</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="max-w-2xl">
+      <div class="gold-line mb-5"></div>
+      <p class="uppercase tracking-[0.2em] text-xs font-bold text-[#7b2f2f]">What we provide</p>
+      <h2 class="text-4xl md:text-5xl mt-3">Practical infrastructure for your function.</h2>
+      <p class="mt-5 text-[#6e685f] text-lg leading-relaxed">Tell us what your event needs and we can help arrange the essential rental equipment and support required at your venue.</p>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-darker/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <img src="Durga Logo.jpg" alt="Durga Logo" class="h-12 w-auto logo-glow rounded-full">
-                    <span class="text-2xl font-black text-gold-500 tracking-tighter text-glow">SDE</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
-                            <span data-en="Home" data-kn="ಮನೆ">Home</span>
-                        </a>
-                        <a href="#about" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
-                            <span data-en="Owner" data-kn="ಮಾಲೀಕರು">Owner</span>
-                        </a>
-                        <a href="#services" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
-                            <span data-en="Services" data-kn="ಸೇವೆಗಳು">Services</span>
-                        </a>
-                        <a href="#reviews" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
-                            <span data-en="Reviews" data-kn="ಅಭಿಪ್ರಾಯ">Reviews</span>
-                        </a>
-                        <a href="#contact" class="hover:text-gold-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
-                            <span data-en="Contact" data-kn="ಸಂಪರ್ಕಿಸಿ">Contact</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-chair text-xl"></i></div><h3 class="text-2xl mt-5">Furniture</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Chairs, tables and other function furniture for seating, dining and event arrangements.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-tent text-xl"></i></div><h3 class="text-2xl mt-5">Tents & Shelter</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Tents, shamiana-style shelter and temporary event structures.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-house text-xl"></i></div><h3 class="text-2xl mt-5">Metal-sheet Roofing</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Temporary metal-sheet roofing solutions for outdoor and covered function spaces.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-layer-group text-xl"></i></div><h3 class="text-2xl mt-5">Stages</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Stage arrangements for weddings, functions, religious events and gatherings.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-fan text-xl"></i></div><h3 class="text-2xl mt-5">Fans & Coolers</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Cooling and air circulation equipment to improve guest comfort during functions.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-droplet text-xl"></i></div><h3 class="text-2xl mt-5">Water Facilities</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Water tanks and wash basins for temporary event and function requirements.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-fire-flame-curved text-xl"></i></div><h3 class="text-2xl mt-5">Traditional Functions</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Support and infrastructure for traditional events including Kola and Daiva Nema functions.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-truck text-xl"></i></div><h3 class="text-2xl mt-5">Transportation</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Transportation and delivery support for rental equipment and function requirements.</p></div>
+
+      <div class="card-hover bg-[#fffdf8] border border-[#e5ddd0] rounded-2xl p-7"><div class="w-12 h-12 rounded-xl bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center"><i class="fa-solid fa-calendar-check text-xl"></i></div><h3 class="text-2xl mt-5">Function Support</h3><p class="mt-3 text-[#6e685f] leading-relaxed">Suitable for weddings, religious events, housewarmings, birthdays, gatherings and other events.</p></div>
+
+    </div>
+  </div>
+</section>
+
+<section id="events" class="bg-[#efe8dc] py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="gold-line mx-auto mb-5"></div>
+      <p class="uppercase tracking-[0.2em] text-xs font-bold text-[#7b2f2f]">Built for many occasions</p>
+      <h2 class="text-4xl md:text-5xl mt-3">Whatever the function, we can help with the setup.</h2>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="bg-[#fffdf8] rounded-2xl p-7 border border-[#e5ddd0]"><i class="fa-solid fa-ring text-[#7b2f2f] text-2xl"></i><h3 class="text-2xl mt-5">Wedding Functions</h3><p class="mt-3 text-[#6e685f]">Seating, shelter, stages, cooling and other essential function infrastructure.</p></div>
+      <div class="bg-[#fffdf8] rounded-2xl p-7 border border-[#e5ddd0]"><i class="fa-solid fa-place-of-worship text-[#7b2f2f] text-2xl"></i><h3 class="text-2xl mt-5">Religious Functions</h3><p class="mt-3 text-[#6e685f]">Practical arrangements for religious and community gatherings.</p></div>
+      <div class="bg-[#fffdf8] rounded-2xl p-7 border border-[#e5ddd0]"><i class="fa-solid fa-fire text-[#7b2f2f] text-2xl"></i><h3 class="text-2xl mt-5">Kola & Daiva Nema</h3><p class="mt-3 text-[#6e685f]">Traditional function support and temporary infrastructure.</p></div>
+      <div class="bg-[#fffdf8] rounded-2xl p-7 border border-[#e5ddd0]"><i class="fa-solid fa-house text-[#7b2f2f] text-2xl"></i><h3 class="text-2xl mt-5">Housewarming</h3><p class="mt-3 text-[#6e685f]">Tables, chairs, shelter and other requirements for family functions.</p></div>
+      <div class="bg-[#fffdf8] rounded-2xl p-7 border border-[#e5ddd0]"><i class="fa-solid fa-cake-candles text-[#7b2f2f] text-2xl"></i><h3 class="text-2xl mt-5">Birthdays & Gatherings</h3><p class="mt-3 text-[#6e685f]">Flexible rental support for celebrations and gatherings.</p></div>
+      <div class="bg-[#fffdf8] rounded-2xl p-7 border border-[#e5ddd0]"><i class="fa-solid fa-ellipsis text-[#7b2f2f] text-2xl"></i><h3 class="text-2xl mt-5">Other Functions</h3><p class="mt-3 text-[#6e685f]">Have something different in mind? Contact us and tell us what you need.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-center">
+      <div>
+        <div class="rounded-[2rem] overflow-hidden bg-[#efe8dc] border border-[#e5ddd0]">
+          <img src="Dhooma Thingalaya.jpg" alt="Dhooma Thingalaya, Sri Devi Enterprises" class="w-full aspect-[4/5] object-cover">
+        </div>
+      </div>
+
+      <div>
+        <div class="gold-line mb-5"></div>
+        <p class="uppercase tracking-[0.2em] text-xs font-bold text-[#7b2f2f]">About Sri Devi Enterprises</p>
+        <h2 class="text-4xl md:text-5xl mt-3">A local business built on reliable service.</h2>
+        <p class="mt-6 text-lg text-[#6e685f] leading-relaxed">Sri Devi Enterprises has been serving Uppoor and the wider Udupi area since 1995, providing rental equipment and practical infrastructure for functions and gatherings.</p>
+        <p class="mt-5 text-[#6e685f] leading-relaxed">The focus is simple: provide the equipment customers need, coordinate the requirements clearly and support the event with dependable local service.</p>
+        <p class="mt-5 text-[#6e685f] leading-relaxed">From a few tables and chairs to larger requirements involving tents, stages, roofing, cooling, water facilities and transportation, customers can contact us directly to discuss their function.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <div class="px-4 py-2.5 rounded-full bg-[#f3e9dd] text-sm font-semibold">Since 1995</div>
+          <div class="px-4 py-2.5 rounded-full bg-[#f3e9dd] text-sm font-semibold">Uppoor</div>
+          <div class="px-4 py-2.5 rounded-full bg-[#f3e9dd] text-sm font-semibold">Direct Contact</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quote" class="bg-[#25221e] text-white py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20">
+      <div>
+        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6"><i class="fa-solid fa-file-signature text-[#d4aa68]"></i></div>
+        <div class="text-xs uppercase tracking-[0.2em] text-[#d4aa68]">Get a quote</div>
+        <h2 class="text-4xl md:text-5xl mt-3">Tell us about your function.</h2>
+        <p class="mt-5 text-white/65 text-lg leading-relaxed">Give us a few details and we'll prepare a WhatsApp enquiry message for you. You can review it before sending.</p>
+        <div class="mt-8 space-y-4 text-sm text-white/70">
+          <div class="flex gap-3"><i class="fa-solid fa-check text-[#d4aa68] mt-1"></i><span>No information is stored by this website.</span></div>
+          <div class="flex gap-3"><i class="fa-solid fa-check text-[#d4aa68] mt-1"></i><span>Your enquiry goes directly to our WhatsApp number.</span></div>
+          <div class="flex gap-3"><i class="fa-solid fa-check text-[#d4aa68] mt-1"></i><span>You can discuss availability and pricing directly.</span></div>
+        </div>
+      </div>
+
+      <div class="bg-[#fffdf8] text-[#25221e] rounded-[2rem] p-6 md:p-8">
+        <form id="quoteForm" class="space-y-5">
+          <div>
+            <label for="eventType" class="block text-sm font-semibold mb-2">Function type</label>
+            <select id="eventType" required class="w-full rounded-xl border border-[#e5ddd0] bg-white px-4 py-3.5 outline-none focus:border-[#7b2f2f]">
+              <option value="">Select function type</option>
+              <option>Wedding</option>
+              <option>Religious function</option>
+              <option>Kola / Daiva Nema</option>
+              <option>Housewarming</option>
+              <option>Birthday</option>
+              <option>Family gathering</option>
+              <option>Other function</option>
+            </select>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="eventDate" class="block text-sm font-semibold mb-2">Function date</label>
+              <input id="eventDate" type="date" required class="w-full rounded-xl border border-[#e5ddd0] bg-white px-4 py-3.5 outline-none focus:border-[#7b2f2f]">
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-gray-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 text-center">
-                <a href="#home" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Home" data-kn="ಮನೆ">Home</a>
-                <a href="#about" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Owner" data-kn="ಮಾಲೀಕರು">Owner</a>
-                <a href="#services" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Services" data-kn="ಸೇವೆಗಳು">Services</a>
-                <a href="#reviews" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Reviews" data-kn="ಅಭಿಪ್ರಾಯ">Reviews</a>
-                <a href="#contact" class="block hover:text-gold-400 px-3 py-2 rounded-md text-base font-semibold" data-en="Contact" data-kn="ಸಂಪರ್ಕಿಸಿ">Contact</a>
+            <div>
+              <label for="guests" class="block text-sm font-semibold mb-2">Approx. guests</label>
+              <input id="guests" type="number" min="1" placeholder="e.g. 250" required class="w-full rounded-xl border border-[#e5ddd0] bg-white px-4 py-3.5 outline-none focus:border-[#7b2f2f]">
             </div>
+          </div>
+
+          <div>
+            <label for="location" class="block text-sm font-semibold mb-2">Function location</label>
+            <input id="location" type="text" placeholder="Village / area / venue" required class="w-full rounded-xl border border-[#e5ddd0] bg-white px-4 py-3.5 outline-none focus:border-[#7b2f2f]">
+          </div>
+
+          <div>
+            <label for="requirements" class="block text-sm font-semibold mb-2">What do you need?</label>
+            <textarea id="requirements" rows="5" placeholder="Example: 150 chairs, 20 tables, tent, stage and fans" required class="w-full rounded-xl border border-[#e5ddd0] bg-white px-4 py-3.5 outline-none focus:border-[#7b2f2f] resize-none"></textarea>
+          </div>
+
+          <button type="submit" class="primary-btn w-full py-4 rounded-xl font-semibold"><i class="fa-brands fa-whatsapp mr-2"></i>Create WhatsApp Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 md:py-24">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="bg-[#efe8dc] rounded-[2rem] p-10 md:p-16 text-center border border-[#e5ddd0]">
+      <div class="w-16 h-16 mx-auto rounded-full bg-[#fffdf8] flex items-center justify-center text-[#7b2f2f]"><i class="fa-solid fa-images text-2xl"></i></div>
+      <h2 class="text-3xl md:text-4xl mt-6">Our gallery is coming soon.</h2>
+      <p class="mt-4 text-[#6e685f] max-w-xl mx-auto leading-relaxed">We're preparing photos of our equipment, setups and completed functions. Check back soon for the gallery.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-20 md:py-28 bg-[#fffdf8] border-y border-[#e5ddd0]">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="max-w-2xl">
+      <div class="gold-line mb-5"></div>
+      <p class="uppercase tracking-[0.2em] text-xs font-bold text-[#7b2f2f]">Contact us</p>
+      <h2 class="text-4xl md:text-5xl mt-3">Talk directly to Sri Devi Enterprises.</h2>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <a href="tel:+917760101253" class="card-hover border border-[#e5ddd0] rounded-2xl p-6 bg-[#f7f3eb]"><i class="fa-solid fa-phone text-[#7b2f2f] text-xl"></i><div class="text-sm text-[#6e685f] mt-5">Call</div><div class="font-semibold mt-1">+91 77601 01253</div></a>
+      <a href="https://wa.me/917760101253" target="_blank" rel="noopener" class="card-hover border border-[#e5ddd0] rounded-2xl p-6 bg-[#f7f3eb]"><i class="fa-brands fa-whatsapp text-[#7b2f2f] text-xl"></i><div class="text-sm text-[#6e685f] mt-5">WhatsApp</div><div class="font-semibold mt-1">Message us</div></a>
+      <a href="mailto:srideviuppoor@gmail.com" class="card-hover border border-[#e5ddd0] rounded-2xl p-6 bg-[#f7f3eb]"><i class="fa-solid fa-envelope text-[#7b2f2f] text-xl"></i><div class="text-sm text-[#6e685f] mt-5">Email</div><div class="font-semibold mt-1 break-all">srideviuppoor@gmail.com</div></a>
+      <a href="https://maps.app.goo.gl/K1PNzmNcpLxV9RQr9" target="_blank" rel="noopener" class="card-hover border border-[#e5ddd0] rounded-2xl p-6 bg-[#f7f3eb]"><i class="fa-solid fa-location-dot text-[#7b2f2f] text-xl"></i><div class="text-sm text-[#6e685f] mt-5">Find us</div><div class="font-semibold mt-1">Uppoor, beside NH 66</div></a>
+    </div>
+
+    <div class="mt-8 bg-[#25221e] rounded-[2rem] p-7 md:p-9 text-white flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div>
+        <div class="text-[#d4aa68] text-xs uppercase tracking-[0.2em] font-bold">Quick payment</div>
+        <h3 class="text-3xl mt-2">Need to make a payment?</h3>
+        <p class="text-white/60 mt-2">Enter your amount and generate a UPI payment request.</p>
+      </div>
+      <a href="payment.html" class="bg-white text-[#25221e] px-7 py-3.5 rounded-full font-semibold text-center hover:bg-[#f3e9dd] transition"><i class="fa-solid fa-indian-rupee-sign mr-2"></i>Go to Payment</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-[#25221e] text-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-12">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-white overflow-hidden"><img src="Durga Logo.jpg" alt="Sri Devi Enterprises logo" class="w-full h-full object-cover"></div>
+          <div><div class="font-bold tracking-wide">SRI DEVI ENTERPRISES</div><div class="text-xs text-white/50">Uppoor · Since 1995</div></div>
         </div>
-    </nav>
+        <p class="mt-5 text-white/60 leading-relaxed max-w-sm">Event rentals and practical function infrastructure for customers across Udupi and nearby areas.</p>
+      </div>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="pt-32 pb-20 min-h-[90vh] flex items-center border-b border-gray-900 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-            <div class="flex flex-col items-center justify-center text-center">
-                <div class="max-w-4xl animate-fade-in">
-                    <img src="Durga Logo.jpg" alt="Durga Logo" class="h-40 md:h-56 w-auto mx-auto mb-8 logo-glow">
-                    <div class="mb-4 inline-block px-4 py-1 border border-gold-500/30 rounded text-gold-500 font-black text-xl tracking-widest uppercase">
-                        SDE
-                    </div>
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-                        SRI DEVI <span class="text-gold-500">ENTERPRISES</span>
-                    </h1>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-300 mb-8 font-serif">ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್</h2>
-                    <p class="text-xl md:text-2xl text-gold-400 font-medium mb-12 uppercase tracking-[0.2em]" data-en="Proudly Serving Since 1995" data-kn="1995 ರಿಂದ ನಿಮ್ಮ ಸೇವೆಯಲ್ಲಿ">Proudly Serving Since 1995</p>
+      <div>
+        <div class="font-semibold mb-4">Services</div>
+        <ul class="space-y-2 text-sm text-white/60">
+          <li>Tables & Chairs</li><li>Tents & Shelter</li><li>Metal-sheet Roofing</li><li>Stages</li><li>Fans & Coolers</li><li>Water Facilities</li><li>Transportation</li>
+        </ul>
+      </div>
 
-                    <div class="flex flex-col sm:flex-row justify-center gap-6">
-                        <a href="tel:+917760101253" class="gradient-gold text-black font-bold py-5 px-12 rounded-full shadow-2xl transition-all hover:scale-105 hover:shadow-gold-500/20">
-                            <i class="fas fa-phone-alt mr-2"></i> <span data-en="Call Now" data-kn="ಈಗ ಕರೆ ಮಾಡಿ">Call Now</span>
-                        </a>
-                        <a href="https://wa.me/917760101253" class="bg-transparent border-2 border-green-500 text-green-500 font-bold py-5 px-12 rounded-full flex items-center justify-center gap-2 hover:bg-green-500 hover:text-white transition-all">
-                            <i class="fab fa-whatsapp text-xl"></i> <span data-en="WhatsApp" data-kn="ವಾಟ್ಸಾಪ್">WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <div>
+        <div class="font-semibold mb-4">Contact</div>
+        <div class="space-y-3 text-sm text-white/60">
+          <a href="tel:+917760101253" class="block hover:text-white">+91 77601 01253</a>
+          <a href="mailto:srideviuppoor@gmail.com" class="block hover:text-white">srideviuppoor@gmail.com</a>
+          <a href="https://maps.app.goo.gl/K1PNzmNcpLxV9RQr9" target="_blank" rel="noopener" class="block hover:text-white">Uppoor, beside NH 66, Udupi</a>
         </div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/10 blur-[150px] rounded-full pointer-events-none"></div>
-    </section>
+      </div>
+    </div>
 
-    <!-- OWNER SECTION (ABOUT) -->
-    <section id="about" class="py-24 bg-dark">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <!-- Image of Founder -->
-                <div class="w-full lg:w-1/3 flex justify-center">
-                    <div class="relative group">
-                        <div class="absolute -inset-2 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-                        <div class="relative bg-gray-900 p-2 rounded-2xl border border-gray-800 shadow-2xl">
-                            <img src="Dhooma Thingalaya.jpg" alt="Dhooma Thingalaya - Owner" class="rounded-xl w-72 md:w-80 h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500">
-                            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gold-500 text-black px-8 py-3 rounded-full font-black shadow-2xl whitespace-nowrap uppercase tracking-widest text-sm" data-en="Dhooma Thingalaya" data-kn="ಧೂಮ ತಿಂಗಳಾಯ">
-                                Dhooma Thingalaya
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3 justify-between text-xs text-white/40">
+      <div>© 2026 Sri Devi Enterprises. All rights reserved.</div>
+      <div>Since 1995 · Uppoor, Udupi</div>
+    </div>
+  </div>
+</footer>
 
-                <div class="w-full lg:w-2/3 text-center lg:text-left space-y-8 mt-12 lg:mt-0">
-                    <div class="inline-block px-4 py-1 rounded-full bg-gold-500/10 text-gold-500 font-bold text-sm tracking-widest uppercase" data-en="Founder & Proprietor" data-kn="ಸ್ಥಾಪಕರು ಮತ್ತು ಮಾಲೀಕರು">Founder & Proprietor</div>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">
-                        <span data-en="The Visionary Behind" data-kn="ನಮ್ಮ ವಿಶ್ವಾಸಾರ್ಹ ಪರಂಪರೆಯ">The Visionary Behind</span> <br>
-                        <span class="text-gold-500" data-en="Our Trusted Legacy" data-kn="ಹಿಂದಿರುವ ದೃಷ್ಟಿಕೋನ">Our Trusted Legacy</span>
-                    </h2>
-                    <div class="space-y-6 max-w-3xl">
-                        <p class="text-gray-300 text-lg leading-relaxed">
-                            <strong data-en="Sri Devi Enterprises – Proudly serving since 1995." data-kn="ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್ – 1995 ರಿಂದ ಹೆಮ್ಮೆಯ ಸೇವೆ.">Sri Devi Enterprises – Proudly serving since 1995.</strong> 
-                            <span data-en="Based in Udupi, we have built a respected legacy of reliability and service excellence, earning the trust of families across Uppoor and Herur." data-kn="ಉಡುಪಿಯಲ್ಲಿದ್ದು, ನಾವು ಉಪ್ಪೂರು ಮತ್ತು ಹೇರೂರಿನ ಕುಟುಂಬಗಳ ವಿಶ್ವಾಸವನ್ನು ಗಳಿಸಿ, ವಿಶ್ವಾಸಾರ್ಹತೆ ಮತ್ತು ಸೇವಾ ಶ್ರೇಷ್ಠತೆಯ ಪರಂಪರೆಯನ್ನು ನಿರ್ಮಿಸಿದ್ದೇವೆ.">Based in Udupi, we have built a respected legacy of reliability and service excellence, earning the trust of families across Uppoor and Herur.</span>
-                        </p>
-                        <p class="text-gray-300 text-lg leading-relaxed">
-                            <span data-en="Under the dedicated leadership of Dhooma Thingalaya, we specialize in dependable event rental solutions for weddings, religious functions, parties, and community gatherings." data-kn="ಧೂಮ ತಿಂಗಳಾಯ ಅವರ ನಾಯಕತ್ವದಲ್ಲಿ, ನಾವು ಮದುವೆಗಳು, ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮಗಳು, ಪಾರ್ಟಿಗಳು ಮತ್ತು ಸಮುದಾಯ ಕೂಟಗಳಿಗೆ ಬೇಕಾದ ಬಾಡಿಗೆ ಸಾಮಗ್ರಿಗಳ ಪೂರೈಕೆಯಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿದ್ದೇವೆ.">Under the dedicated leadership of Dhooma Thingalaya, we specialize in dependable event rental solutions for weddings, religious functions, parties, and community gatherings.</span>
-                        </p>
-                    </div>
-                    
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
-                        <div class="p-4 bg-gray-900/50 rounded-2xl border border-gray-800 text-left">
-                            <p class="text-gold-500 font-black text-2xl">30+</p>
-                            <p class="text-gray-500 text-xs uppercase font-bold" data-en="Years of Service" data-kn="ವರ್ಷಗಳ ಸೇವೆ">Years of Service</p>
-                        </div>
-                        <div class="p-4 bg-gray-900/50 rounded-2xl border border-gray-800 text-left">
-                            <p class="text-gold-500 font-black text-2xl" data-en="Udupi" data-kn="ಉಡುಪಿ">Udupi</p>
-                            <p class="text-gray-500 text-xs uppercase font-bold" data-en="Region Served" data-kn="ಸೇವಾ ಪ್ರದೇಶ">Region Served</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="mobile-bottom-bar fixed bottom-0 left-0 right-0 z-50 bg-[#fffdf8] border-t border-[#e5ddd0]">
+  <div class="grid grid-cols-4 h-16">
+    <a href="tel:+917760101253" class="flex flex-col items-center justify-center text-[#25221e] text-xs gap-1"><i class="fa-solid fa-phone"></i><span>Call</span></a>
+    <a href="https://wa.me/917760101253" target="_blank" rel="noopener" class="flex flex-col items-center justify-center text-[#25221e] text-xs gap-1"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+    <a href="#quote" class="flex flex-col items-center justify-center text-[#7b2f2f] text-xs gap-1 font-semibold"><i class="fa-solid fa-file-signature"></i><span>Quote</span></a>
+    <a href="payment.html" class="flex flex-col items-center justify-center text-[#7b2f2f] text-xs gap-1 font-semibold"><i class="fa-solid fa-indian-rupee-sign"></i><span>Pay</span></a>
+  </div>
+</div>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 bg-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                <span data-en="Our" data-kn="ನಮ್ಮ">Our</span> <span class="text-gold-500" data-en="Specializations" data-kn="ವಿಶೇಷ ಸೇವೆಗಳು">Specializations</span>
-            </h2>
-            <p class="text-gray-400 mb-16 max-w-2xl mx-auto" data-en="Expert solutions tailored for every occasion, from grand weddings to sacred traditional rituals." data-kn="ಭವ್ಯವಾದ ವಿವಾಹಗಳಿಂದ ಹಿಡಿದು ಪವಿತ್ರ ಸಾಂಪ್ರದಾಯಿಕ ಆಚರಣೆಗಳವರೆಗೆ ಪ್ರತಿ ಸಂದರ್ಭಕ್ಕೂ ಸೂಕ್ತವಾದ ಪರಿಹಾರಗಳು.">Expert solutions tailored for every occasion, from grand weddings to sacred traditional rituals.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-gray-900 p-8 rounded-3xl border border-gold-500/30 text-left hover:border-gold-500 transition-all group">
-                    <div class="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(245,158,11,0.4)]">
-                        <i class="fas fa-om text-2xl text-black"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4" data-en="Traditional Kola & Daiva Nema Setup" data-kn="ಸಾಂಪ್ರದಾಯಿಕ ಕೋಲ ಮತ್ತು ದೈವ ನೇಮ ವ್ಯವಸ್ಥೆ">Traditional Kola & Daiva Nema Setup</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-en="Professional and authentic Kola Chapara arrangements for Bhoota Kola and Daiva Nema ceremonies." data-kn="ಭೂತ ಕೋಲ ಮತ್ತು ದೈವ ನೇಮದ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ವೃತ್ತಿಪರ ಕೋಲದ ಚಪ್ಪರ ವ್ಯವಸ್ಥೆಗಳು.">
-                        Professional and authentic Kola Chapara arrangements for Bhoota Kola and Daiva Nema ceremonies.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-500">
-                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Cultural Authenticity" data-kn="ಸಾಂಸ್ಕೃತಿಕ ನೈಜತೆ">Cultural Authenticity</span></li>
-                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Lighting & Structural Setup" data-kn="ಲೈಟಿಂಗ್ ಮತ್ತು ಸ್ಟ್ರಕ್ಚರಲ್ ಸೆಟಪ್">Lighting & Structural Setup</span></li>
-                    </ul>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 text-left hover:border-gray-700 transition-all">
-                    <div class="w-14 h-14 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-chair text-gold-500 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4" data-en="Event Rentals" data-kn="ಬಾಡಿಗೆ ಸಾಮಗ್ರಿಗಳು">Event Rentals</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-en="Comprehensive inventory for any gathering size." data-kn="ಯಾವುದೇ ಗಾತ್ರದ ಕೂಟಗಳಿಗೆ ಬೇಕಾದ ಸಮಗ್ರ ಬಾಡಿಗೆ ಸಾಮಗ್ರಿಗಳು.">Comprehensive inventory for any gathering size.</p>
-                    <ul class="space-y-2 text-xs text-gray-500">
-                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Plastic & Steel Chairs" data-kn="ಪ್ಲಾಸ್ಟಿಕ್ ಮತ್ತು ಸ್ಟೀಲ್ ಕುರ್ಚಿಗಳು">Plastic & Steel Chairs</span></li>
-                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Dining Tables & Tents" data-kn="ಊಟದ ಟೇಬಲ್ ಮತ್ತು ಟೆಂಟ್‌ಗಳು">Dining Tables & Tents</span></li>
-                    </ul>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 text-left hover:border-gray-700 transition-all">
-                    <div class="w-14 h-14 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-heart text-gold-500 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4" data-en="Function Support" data-kn="ಕಾರ್ಯಕ್ರಮ ಬೆಂಬಲ">Function Support</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-en="End-to-end management for seamless execution." data-kn="ಯಾವುದೇ ಅಡೆತಡೆಯಿಲ್ಲದೆ ಕಾರ್ಯಕ್ರಮ ನಡೆಸಲು ಸಂಪೂರ್ಣ ಬೆಂಬಲ.">End-to-end management for seamless execution.</p>
-                    <ul class="space-y-2 text-xs text-gray-500">
-                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Wedding Stage Setup" data-kn="ಮದುವೆ ಸ್ಟೇಜ್ ಸೆಟಪ್">Wedding Stage Setup</span></li>
-                        <li><i class="fas fa-check text-gold-500 mr-2"></i> <span data-en="Organized Transportation" data-kn="ಸಂಘಟಿತ ಸಾರಿಗೆ">Organized Transportation</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+  const menuButton=document.getElementById("menuButton");
+  const mobileMenu=document.getElementById("mobileMenu");
 
-    <!-- REVIEWS SECTION -->
-    <section id="reviews" class="py-24 bg-dark">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="bg-gray-900 p-12 rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 blur-3xl rounded-full -mr-16 -mt-16"></div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                    <span data-en="Share Your" data-kn="ನಿಮ್ಮ">Share Your</span> <span class="text-gold-500" data-en="Feedback" data-kn="ಅಭಿಪ್ರಾಯ ಹಂಚಿಕೊಳ್ಳಿ">Feedback</span>
-                </h2>
-                <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto" data-en="Your satisfaction is our greatest reward. If you've enjoyed our services, please take a moment to leave us a review on Google." data-kn="ನಿಮ್ಮ ತೃಪ್ತಿಯೇ ನಮ್ಮ ಅತಿದೊಡ್ಡ ಪ್ರತಿಫಲ. ನಮ್ಮ ಸೇವೆಗಳು ನಿಮಗೆ ಇಷ್ಟವಾಗಿದ್ದರೆ, ದಯವಿಟ್ಟು ಗೂಗಲ್‌ನಲ್ಲಿ ನಮಗೆ ವಿಮರ್ಶೆಯನ್ನು ನೀಡಿ.">
-                    Your satisfaction is our greatest reward. If you've enjoyed our services, please take a moment to leave us a review on Google.
-                </p>
-                <div class="flex flex-col items-center gap-6">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div class="flex text-gold-500 text-2xl">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <a href="https://g.page/r/CcnaJTJGU3yKEBM/review" target="_blank" class="gradient-gold text-black font-extrabold py-5 px-12 rounded-full shadow-xl transition-all hover:scale-105 flex items-center gap-3">
-                        <i class="fab fa-google text-xl"></i>
-                        <span data-en="CLICK HERE TO LEAVE A REVIEW" data-kn="ಅಭಿಪ್ರಾಯ ನೀಡಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ">CLICK HERE TO LEAVE A REVIEW</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+  menuButton.addEventListener("click",()=>{
+    mobileMenu.classList.toggle("hidden");
+    const icon=menuButton.querySelector("i");
+    if(mobileMenu.classList.contains("hidden")){
+      icon.classList.remove("fa-xmark");
+      icon.classList.add("fa-bars");
+    }else{
+      icon.classList.remove("fa-bars");
+      icon.classList.add("fa-xmark");
+    }
+  });
 
-    <!-- CONTACT & PAYMENT -->
-    <section id="contact" class="py-24 bg-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-3xl font-bold mb-8 text-gold-500" data-en="Get In Touch" data-kn="ಸಂಪರ್ಕಿಸಿ">Get In Touch</h2>
-                    <div class="space-y-6 bg-gray-900 p-8 rounded-3xl border border-gray-800">
-                        <a href="tel:+917760101253" class="flex items-center gap-4 group hover:bg-gray-800 p-4 rounded-xl transition-all">
-                            <i class="fas fa-phone text-gold-500 text-xl w-8"></i>
-                            <span class="text-xl font-bold group-hover:text-gold-400 transition-colors">+91 7760101253</span>
-                        </a>
-                        <a href="mailto:srideviuppoor@gmail.com" class="flex items-center gap-4 group hover:bg-gray-800 p-4 rounded-xl transition-all">
-                            <i class="fas fa-envelope text-gold-500 text-xl w-8"></i>
-                            <span class="text-lg group-hover:text-gold-400 transition-colors">srideviuppoor@gmail.com</span>
-                        </a>
-                        <div class="mt-8">
-                            <p class="text-sm text-gray-500 uppercase font-bold mb-4 ml-4" data-en="Location & Navigation" data-kn="ಸ್ಥಳ ಮತ್ತು ದಾರಿ">Location & Navigation</p>
-                            <a href="https://maps.app.goo.gl/bG8nN6LviGYYS3nE7" target="_blank" class="flex items-center justify-center gap-3 w-full bg-gold-500 text-black font-bold py-4 px-6 rounded-2xl mb-4 hover:bg-gold-400 transition-all shadow-lg active:scale-95">
-                                <i class="fas fa-directions text-2xl"></i>
-                                <span data-en="OPEN IN GOOGLE MAPS" data-kn="ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ವೀಕ್ಷಿಸಿ">OPEN IN GOOGLE MAPS</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center flex flex-col items-center">
-                    <h2 class="text-3xl font-bold mb-8" data-en="Scan to Pay" data-kn="ಹಣ ಪಾವತಿಸಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ">Scan to Pay</h2>
-                    <div class="bg-white p-4 rounded-3xl shadow-2xl max-w-xs w-full mb-6">
-                        <img src="QR Code - Sri Devi Enterprises.png" alt="Payment QR" class="w-full h-auto">
-                    </div>
-                    <p class="text-gray-500 text-sm" data-en="Tap the ID to open Payment App" data-kn="ಹಣ ಪಾವತಿ ಆಪ್ ತೆರೆಯಲು ಐಡಿ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ">Tap the ID to open Payment App</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  document.querySelectorAll(".mobile-link").forEach(link=>{
+    link.addEventListener("click",()=>{
+      mobileMenu.classList.add("hidden");
+      const icon=menuButton.querySelector("i");
+      icon.classList.remove("fa-xmark");
+      icon.classList.add("fa-bars");
+    });
+  });
 
-    <!-- FOOTER -->
-    <footer class="bg-darker py-16 border-t border-gray-900 text-center">
-        <img src="Durga Logo.jpg" alt="Durga Logo" class="h-20 w-auto mx-auto mb-4 opacity-50 grayscale hover:grayscale-0 transition-all">
-        <h2 class="text-2xl font-bold text-white mb-2 uppercase tracking-widest">Sri Devi Enterprises</h2>
-        <p class="text-gray-500 mb-8 font-serif">ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್</p>
-        <div class="mt-8 text-gray-600 text-sm" data-en="© 2026 Sri Devi Enterprises | NH66 Uppoor | Since 1995" data-kn="© 2026 ಶ್ರೀ ದೇವಿ ಎಂಟರ್‌ಪ್ರೈಸಸ್ | NH66 ಉಪ್ಪೂರು | 1995 ರಿಂದ">
-            &copy; 2026 Sri Devi Enterprises | NH66 Uppoor | Since 1995
-        </div>
-    </footer>
+  const quoteForm=document.getElementById("quoteForm");
 
-    <script>
-        // Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+  quoteForm.addEventListener("submit",function(event){
+    event.preventDefault();
 
-        // Language Switcher Logic
-        const langToggle = document.getElementById('lang-toggle');
-        const langLabel = document.getElementById('lang-label');
-        let currentLang = 'en';
+    const eventType=document.getElementById("eventType").value.trim();
+    const eventDate=document.getElementById("eventDate").value;
+    const location=document.getElementById("location").value.trim();
+    const guests=document.getElementById("guests").value.trim();
+    const requirements=document.getElementById("requirements").value.trim();
 
-        langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'kn' : 'en';
-            
-            // Update Toggle Button Text
-            langLabel.innerText = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+    if(!eventType||!eventDate||!location||!guests||!requirements){
+      alert("Please fill in all the details.");
+      return;
+    }
 
-            // Update All Translatable Elements
-            document.querySelectorAll('[data-en]').forEach(el => {
-                el.innerText = el.getAttribute(`data-${currentLang}`);
-            });
+    const formattedDate=new Date(eventDate+"T00:00:00").toLocaleDateString("en-IN",{
+      day:"2-digit",month:"short",year:"numeric"
+    });
 
-            // Close mobile menu if open
-            document.getElementById('mobile-menu').classList.add('hidden');
-        });
-    </script>
+    const message=`Hello Sri Devi Enterprises,
+
+I would like to enquire about requirements for my function.
+
+Function: ${eventType}
+Date: ${formattedDate}
+Location: ${location}
+Approx. Guests: ${guests}
+
+Requirements:
+${requirements}
+
+Please let me know the availability and quotation.
+
+Thank you.`;
+
+    const whatsappURL="https://wa.me/917760101253?text="+encodeURIComponent(message);
+    window.open(whatsappURL,"_blank","noopener,noreferrer");
+  });
+</script>
+
 </body>
 </html>
-
