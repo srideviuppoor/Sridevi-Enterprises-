@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Make a Payment | Sri Devi Enterprises</title>
+
+  <meta
+    name="description"
+    content="Make a UPI payment to Sri Devi Enterprises. Enter the amount to generate a payment link and QR code."
+  >
+
+  <meta name="theme-color" content="#7b2f2f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --ink: #25221e;
+      --cream: #f7f3eb;
+      --paper: #fffdf8;
+      --maroon: #7b2f2f;
+      --maroon2: #5f2323;
+      --gold: #b8893b;
+      --line: #e5ddd0;
+      --muted: #6e685f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    h1,
+    h2,
+    h3,
+    .serif {
+      font-family: "Playfair Display", serif;
+    }
+
+    .primary-btn {
+      background: var(--maroon);
+      color: white;
+      transition: all 0.2s ease;
+    }
+
+    .primary-btn:hover {
+      background: var(--maroon2);
+      transform: translateY(-1px);
+    }
+
+    .secondary-btn {
+      background: var(--ink);
+      color: white;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-btn:hover {
+      background: #11100e;
+    }
+
+    .outline-btn {
+      border: 1px solid var(--maroon);
+      color: var(--maroon);
+      transition: all 0.2s ease;
+    }
+
+    .outline-btn:hover {
+      background: var(--maroon);
+      color: white;
+    }
+
+    .gold-line {
+      width: 54px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 999px;
+    }
+
+    .qr-container {
+      min-height: 250px;
+    }
+
+    .qr-container img,
+    .qr-container canvas {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="bg-[#fffdf8]/95 backdrop-blur border-b border-[#e5ddd0]">
+
+    <div class="max-w-5xl mx-auto px-5 lg:px-8">
+
+      <div class="h-20 flex items-center justify-between">
+
+        <a href="index.html" class="flex items-center gap-3 min-w-0">
+
+          <div class="w-12 h-12 rounded-full bg-white border border-[#e5ddd0] overflow-hidden flex-shrink-0">
+            <img
+              src="Durga Logo.jpg"
+              alt="Sri Devi Enterprises logo"
+              class="w-full h-full object-cover"
+            >
+          </div>
+
+          <div class="min-w-0">
+
+            <div class="font-bold tracking-wide text-sm sm:text-base truncate">
+              SRI DEVI ENTERPRISES
+            </div>
+
+            <div class="text-xs text-[#6e685f]">
+              Uppoor · Since 1995
+            </div>
+
+          </div>
+
+        </a>
+
+        <a
+          href="index.html"
+          class="text-sm font-semibold text-[#7b2f2f] hover:text-[#5f2323]"
+        >
+          ← Back to website
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main>
+
+    <section class="min-h-[calc(100vh-80px)] py-12 md:py-20">
+
+      <div class="max-w-5xl mx-auto px-5 lg:px-8">
+
+        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+
+
+          <!-- INTRO -->
+
+          <div class="pt-2">
+
+            <div class="gold-line mb-5"></div>
+
+            <p class="uppercase tracking-[0.2em] text-xs font-bold text-[#7b2f2f]">
+              Secure UPI payment
+            </p>
+
+            <h1 class="text-4xl md:text-5xl leading-tight mt-3">
+              Make a payment to Sri Devi Enterprises.
+            </h1>
+
+            <p class="mt-5 text-lg text-[#6e685f] leading-relaxed">
+              Enter the amount you need to pay and generate a UPI payment
+              request. You can then open it directly in a supported UPI app
+              or scan the QR code.
+            </p>
+
+
+            <!-- Business Details -->
+
+            <div class="mt-8 bg-[#25221e] text-white rounded-2xl p-6">
+
+              <div class="text-xs uppercase tracking-[0.2em] text-[#d4aa68]">
+                Payment details
+              </div>
+
+              <div class="mt-5 space-y-4">
+
+                <div>
+
+                  <div class="text-xs text-white/50">
+                    Payee
+                  </div>
+
+                  <div class="font-semibold mt-1">
+                    Sri Devi Enterprises
+                  </div>
+
+                </div>
+
+
+                <div>
+
+                  <div class="text-xs text-white/50">
+                    UPI ID
+                  </div>
+
+                  <div class="font-semibold mt-1 break-all">
+                    7760101253@okbizaxis
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Notice -->
+
+            <div class="mt-5 flex gap-3 text-sm text-[#6e685f]">
+
+              <i class="fa-solid fa-circle-info text-[#7b2f2f] mt-1"></i>
+
+              <p>
+                This page creates a UPI payment request. It does not verify
+                whether a payment has been completed. Please confirm the
+                payment in your bank or UPI app.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- PAYMENT CARD -->
+
+          <div class="bg-[#fffdf8] border border-[#e5ddd0] rounded-[2rem] p-6 md:p-8 shadow-sm">
+
+            <div id="amountSection">
+
+              <div class="flex items-center justify-between">
+
+                <h2 class="text-2xl md:text-3xl">
+                  Enter amount
+                </h2>
+
+                <div class="w-11 h-11 rounded-full bg-[#f3e9dd] text-[#7b2f2f] flex items-center justify-center">
+                  ₹
+                </div>
+
+              </div>
+
+
+              <div class="mt-7">
+
+                <label
+                  for="amount"
+                  class="block text-sm font-semibold mb-2"
+                >
+                  Amount in INR
+                </label>
+
+
+                <div class="relative">
+
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-xl font-semibold text-[#6e685f]">
+                    ₹
+                  </span>
+
+                  <input
+                    id="amount"
+                    type="number"
+                    inputmode="decimal"
+                    min="1"
+                    step="0.01"
+                    placeholder="0.00"
+                    class="w-full rounded-xl border border-[#e5ddd0] bg-white pl-11 pr-4 py-4 text-xl font-semibold outline-none focus:border-[#7b2f2f]"
+                  >
+
+                </div>
+
+              </div>
+
+
+              <button
+                id="generateButton"
+                type="button"
+                class="primary-btn w-full mt-5 py-4 rounded-xl font-semibold"
+              >
+                Generate Payment QR
+              </button>
+
+            </div>
+
+
+            <!-- GENERATED PAYMENT -->
+
+            <div id="paymentResult" class="hidden">
+
+              <div class="text-center">
+
+                <div class="text-xs uppercase tracking-[0.2em] font-bold text-[#7b2f2f]">
+                  Payment request
+                </div>
+
+                <div
+                  id="displayAmount"
+                  class="serif text-4xl mt-2"
+                >
+                  ₹0.00
+                </div>
+
+                <div class="text-sm text-[#6e685f] mt-1">
+                  Sri Devi Enterprises
+                </div>
+
+              </div>
+
+
+              <!-- QR -->
+
+              <div class="mt-7 bg-white border border-[#e5ddd0] rounded-2xl p-5">
+
+                <div
+                  id="qrcode"
+                  class="qr-container flex items-center justify-center"
+                ></div>
+
+              </div>
+
+
+              <!-- UPI LINK -->
+
+              <div class="mt-5">
+
+                <label
+                  for="upiLink"
+                  class="block text-sm font-semibold mb-2"
+                >
+                  UPI payment link
+                </label>
+
+                <div class="flex gap-2">
+
+                  <input
+                    id="upiLink"
+                    type="text"
+                    readonly
+                    class="min-w-0 flex-1 rounded-xl border border-[#e5ddd0] bg-[#f7f3eb] px-4 py-3 text-xs outline-none"
+                  >
+
+                  <button
+                    id="copyButton"
+                    type="button"
+                    class="outline-btn px-4 rounded-xl font-semibold"
+                  >
+                    Copy
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <!-- ACTIONS -->
+
+              <div class="mt-5 grid sm:grid-cols-2 gap-3">
+
+                <button
+                  id="openButton"
+                  type="button"
+                  class="primary-btn py-3.5 rounded-xl font-semibold"
+                >
+                  Open UPI App
+                </button>
+
+                <button
+                  id="shareButton"
+                  type="button"
+                  class="secondary-btn py-3.5 rounded-xl font-semibold"
+                >
+                  Share Payment
+                </button>
+
+              </div>
+
+
+              <button
+                id="anotherButton"
+                type="button"
+                class="w-full mt-3 py-3 rounded-xl border border-[#e5ddd0] font-semibold hover:bg-[#f7f3eb] transition"
+              >
+                Enter Another Amount
+              </button>
+
+              <div
+                id="statusMessage"
+                class="text-center text-sm text-[#6e685f] mt-4 min-h-[20px]"
+              ></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="bg-[#25221e] text-white">
+
+    <div class="max-w-5xl mx-auto px-5 lg:px-8 py-8">
+
+      <div class="flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/45">
+
+        <div>
+          © 2026 Sri Devi Enterprises. All rights reserved.
+        </div>
+
+        <div>
+          Since 1995 · Uppoor, Udupi
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const UPI_ID = "7760101253@okbizaxis";
+    const PAYEE = "Sri Devi Enterprises";
+
+    const amountInput = document.getElementById("amount");
+    const generateButton = document.getElementById("generateButton");
+
+    const amountSection = document.getElementById("amountSection");
+    const paymentResult = document.getElementById("paymentResult");
+
+    const displayAmount = document.getElementById("displayAmount");
+    const qrcode = document.getElementById("qrcode");
+    const upiLink = document.getElementById("upiLink");
+
+    const openButton = document.getElementById("openButton");
+    const copyButton = document.getElementById("copyButton");
+    const shareButton = document.getElementById("shareButton");
+    const anotherButton = document.getElementById("anotherButton");
+
+    const statusMessage = document.getElementById("statusMessage");
+
+    let generatedUpiUrl = "";
+
+
+    function createPayment() {
+
+      const amount = parseFloat(amountInput.value);
+
+      if (!amount || amount <= 0) {
+        alert("Please enter a valid amount.");
+        amountInput.focus();
+        return;
+      }
+
+
+      generatedUpiUrl =
+        "upi://pay?" +
+        new URLSearchParams({
+          pa: UPI_ID,
+          pn: PAYEE,
+          am: amount.toFixed(2),
+          cu: "INR"
+        }).toString();
+
+
+      displayAmount.textContent =
+        "₹" +
+        amount.toLocaleString("en-IN", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+
+
+      upiLink.value = generatedUpiUrl;
+
+
+      qrcode.innerHTML = "";
+
+
+      new QRCode(qrcode, {
+        text: generatedUpiUrl,
+        width: 220,
+        height: 220,
+        correctLevel: QRCode.CorrectLevel.M
+      });
+
+
+      statusMessage.textContent = "";
+
+
+      amountSection.classList.add("hidden");
+      paymentResult.classList.remove("hidden");
+
+    }
+
+
+    generateButton.addEventListener("click", createPayment);
+
+
+    amountInput.addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        createPayment();
+      }
+
+    });
+
+
+    openButton.addEventListener("click", function() {
+
+      if (!generatedUpiUrl) {
+        return;
+      }
+
+      window.location.href = generatedUpiUrl;
+
+    });
+
+
+    copyButton.addEventListener("click", async function() {
+
+      if (!generatedUpiUrl) {
+        return;
+      }
+
+      try {
+
+        await navigator.clipboard.writeText(generatedUpiUrl);
+
+        copyButton.textContent = "Copied";
+
+        statusMessage.textContent =
+          "Payment link copied to clipboard.";
+
+        setTimeout(() => {
+          copyButton.textContent = "Copy";
+        }, 2000);
+
+      } catch (error) {
+
+        upiLink.select();
+        document.execCommand("copy");
+
+        copyButton.textContent = "Copied";
+
+        statusMessage.textContent =
+          "Payment link copied to clipboard.";
+
+        setTimeout(() => {
+          copyButton.textContent = "Copy";
+        }, 2000);
+
+      }
+
+    });
+
+
+    shareButton.addEventListener("click", async function() {
+
+      if (!generatedUpiUrl) {
+        return;
+      }
+
+
+      const amount = parseFloat(amountInput.value);
+
+
+      if (navigator.share) {
+
+        try {
+
+          await navigator.share({
+            title: "Sri Devi Enterprises Payment",
+            text:
+              "UPI payment request of ₹" +
+              amount.toLocaleString("en-IN", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              }) +
+              " to Sri Devi Enterprises.",
+            url: generatedUpiUrl
+          });
+
+        } catch (error) {
+          // User cancelled sharing.
+        }
+
+      } else {
+
+        try {
+
+          await navigator.clipboard.writeText(generatedUpiUrl);
+
+          statusMessage.textContent =
+            "Sharing is not supported here. Payment link copied instead.";
+
+        } catch (error) {
+
+          statusMessage.textContent =
+            "Please use the Copy button to copy the payment link.";
+
+        }
+
+      }
+
+    });
+
+
+    anotherButton.addEventListener("click", function() {
+
+      generatedUpiUrl = "";
+
+      amountInput.value = "";
+
+      qrcode.innerHTML = "";
+
+      upiLink.value = "";
+
+      statusMessage.textContent = "";
+
+      paymentResult.classList.add("hidden");
+      amountSection.classList.remove("hidden");
+
+      amountInput.focus();
+
+    });
+
+
+    /*
+      Support links such as:
+
+      payment.html?amount=2750
+
+      The page will automatically fill and generate the payment request.
+    */
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const presetAmount = urlParams.get("amount");
+
+    if (presetAmount) {
+
+      const numericAmount = parseFloat(presetAmount);
+
+      if (numericAmount > 0) {
+
+        amountInput.value = numericAmount;
+
+        createPayment();
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
